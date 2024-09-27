@@ -1,0 +1,6 @@
+C:\Users\GenerationChile38\source\repos\AdminUsuarios\AdminUsuarios\obj\Debug\AdminUsuarios.csproj.AssemblyReference.cache
+C:\Users\GenerationChile38\source\repos\AdminUsuarios\AdminUsuarios\obj\Debug\AdminUsuarios.PL.frmEmpleados.resources
+C:\Users\GenerationChile38\source\repos\AdminUsuarios\AdminUsuarios\obj\Debug\AdminUsuarios.PL.btnBuscarDatos.resources
+C:\Users\GenerationChile38\source\repos\AdminUsuarios\AdminUsuarios\obj\Debug\AdminUsuarios.Properties.Resources.resources
+C:\Users\GenerationChile38\source\repos\AdminUsuarios\AdminUsuarios\obj\Debug\AdminUsuarios.csproj.GenerateResource.cache
+C:\Users\GenerationChile38\source\repos\AdminUsuarios\AdminUsuarios\obj\Debug\AdminUsuarios.csproj.CoreCompileInputs.cache
