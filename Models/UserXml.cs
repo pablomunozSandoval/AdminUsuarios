@@ -14,7 +14,7 @@ public class UserXml
     public string FirstName { get; set; }
 
     [XmlElement("middle_name")]
-    public string MiddleName { get; set; } // Agregado
+    public string MiddleName { get; set; }
 
     [XmlElement("last_name")]
     public string LastName { get; set; }
@@ -29,10 +29,10 @@ public class UserXml
     public AccountType AccountType { get; set; }
 
     [XmlElement("force_password_change")]
-    public bool ForcePasswordChange { get; set; } // Agregado
+    public bool ForcePasswordChange { get; set; } 
 
     [XmlElement("status")]
-    public Status UserStatus { get; set; } // Agregado
+    public Status UserStatus { get; set; }
 
     [XmlElement("contact_info")]
     public ContactInfo ContactInfo { get; set; }

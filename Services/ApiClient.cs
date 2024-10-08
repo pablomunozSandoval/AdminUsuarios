@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace AdminUsuarios.Infrastructure
 {
-    //TODO : MODIFICAR PARA SUBIR DATOS EN FORMATO XML A LA API ALMA
+
     public class ApiClient
     {
         private readonly HttpClient _httpClient;
@@ -20,7 +20,7 @@ namespace AdminUsuarios.Infrastructure
             _httpClient = new HttpClient();
         }
 
-        // Método para actualizar el usuario en la API
+        // Método para actualizar el usuario en la API, sin uso
         public async Task<bool> UpdateUserWithCampoDTOAsync(CampoDTO data)
         {
             try
@@ -85,7 +85,7 @@ namespace AdminUsuarios.Infrastructure
 
 
 
-        //Metodo utilizado actualmente
+        //Metodo utilizado actualmente para actualizar datos
 
         public async Task<bool> UpdateUserWithTestXmlAsync(List<CampoDTO> data)
         {
@@ -94,52 +94,68 @@ namespace AdminUsuarios.Infrastructure
                 var url = "https://api-na.hosted.exlibrisgroup.com/almaws/v1/users/" + data[0];
                 var apiKey = data[0].Apikey;
 
+
                 // XML de prueba como string
                 var xmlData = @"<?xml version=""1.0"" encoding=""UTF-8""?>
                 <user>
-                    <record_type desc=""Public"">PUBLIC</record_type>
-                    <primary_id>1659812-0</primary_id>
-                    <first_name>Moises</first_name>
-                    <middle_name>Mi</middle_name>
-                    <last_name>Muñoz</last_name>
-                    <full_name>Moises Mi Muñoz</full_name>
-                    <preferred_language desc=""Español"">es</preferred_language>
-                    <account_type desc=""Internal"">INTERNAL</account_type>
-                    <force_password_change>false</force_password_change>
-                    <status desc=""Active"">ACTIVE</status>
-                    <status_date>2024-09-05Z</status_date>
+                    <primary_id>{1}</primary_id>
+                    <first_name>{3}</first_name>
+                    <middle_name></middle_name>
+                    <last_name>{2}</last_name>
+                    <full_name>{3} {2}</full_name>
+                    <gender>{7}</gender>
+                    <user_group></user_group>
+                    <preferred_language>es</preferred_language>
+                    <expiry_date>{25}</expiry_date>
+                    <status>{26}</status>
                     <contact_info>
                         <addresses>
-                            <address preferred=""true"" segment_type=""Internal"">
-                                <line1>3598 N. Buckingham Road</line1>
-                                <line2>asd</line2>
-                                <line3>qwe</line3>
-                                <line4>zxc</line4>
-                                <city>Scottsdale</city>
-                                <state_province>AZ</state_province>
-                                <postal_code>85054</postal_code>
-                                <country>
-                                    <xml_value>USA</xml_value>
-                                </country>
-                                <start_date>2024-05-30Z</start_date>
-                                <end_date>2024-05-30Z</end_date>
+                            <address>
+                                <line1>{8}</line1>
+                                <line2>{9}</line2>
+                                <line3>{10}</line3>
+                                <line4>Región {11}</line4>
+                                <city></city>
+                                <state_province></state_province>
+                                <postal_code></postal_code>
+                                <country></country>
+                                <address_note></address_note>
                                 <address_types>
-                                    <address_type>
-                                        <xml_value>home</xml_value>
-                                    </address_type>
+                                    <address_type>home</address_type>
                                 </address_types>
                             </address>
                         </addresses>
                         <emails>
-                            <email preferred=""true"" segment_type=""Internal"">
-                                <email_address>m_munozn@inacap.cl</email_address>
+                            <email>
+                                <email_address>{27}</email_address>
                                 <email_types>
-                                    <email_type desc=""Work"">work</email_type>
+                                    <email_type>personal</email_type>
                                 </email_types>
                             </email>
                         </emails>
+                        <phones>
+                            <phone>
+                                <phone_number>{12}</phone_number>
+                                <phone_types>
+                                    <phone_type>home</phone_type>
+                                </phone_types>
+                            </phone>
+                            <phone>
+                                <phone_number>{13}</phone_number>
+                                <phone_types>
+                                    <phone_type>mobile</phone_type>
+                                </phone_types>
+                            </phone>
+                        </phones>
                     </contact_info>
-                </user>";
+                    <user_statistics>
+                        <user_statistic>
+                            <statistic_category>{25}</statistic_category>
+                            <category_type>BIBLIOTECA</category_type>
+                        </user_statistic>
+                    </user_statistics>
+                    <proxy_for_users></proxy_for_users>
+                 </user>";
 
                 var content = new StringContent(xmlData, Encoding.UTF8, "application/xml");
 
