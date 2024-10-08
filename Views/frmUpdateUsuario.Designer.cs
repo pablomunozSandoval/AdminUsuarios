@@ -1,6 +1,6 @@
-﻿namespace AdminUsuarios.PL
+﻿namespace AdminUsuarios.Views
 {
-    partial class btnBuscarDatos
+    partial class frmUpdateUsuario
     {
         /// <summary>
         /// Required designer variable.
