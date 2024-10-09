@@ -1,126 +1,96 @@
 ﻿using System.Collections.Generic;
-using System.Xml.Serialization;
 
-[XmlRoot("user")]
 public class UserXml
 {
-    [XmlElement("record_type")]
-    public RecordType RecordType { get; set; }
-
-    [XmlElement("primary_id")]
     public string PrimaryId { get; set; }
-
-    [XmlElement("first_name")]
     public string FirstName { get; set; }
-
-    [XmlElement("middle_name")]
     public string MiddleName { get; set; }
-
-    [XmlElement("last_name")]
     public string LastName { get; set; }
-
-    [XmlElement("full_name")]
     public string FullName { get; set; }
-
-    [XmlElement("preferred_language")]
-    public PreferredLanguage PreferredLanguage { get; set; }
-
-    [XmlElement("account_type")]
-    public AccountType AccountType { get; set; }
-
-    [XmlElement("force_password_change")]
-    public bool ForcePasswordChange { get; set; } 
-
-    [XmlElement("status")]
-    public Status UserStatus { get; set; }
-
-    [XmlElement("contact_info")]
+    public string Gender { get; set; }
+    public string UserGroup { get; set; }
+    public string PreferredLanguage { get; set; }
+    public string ExpiryDate { get; set; }
+    public string Status { get; set; }
     public ContactInfo ContactInfo { get; set; }
-}
+    public List<UserStatistic> UserStatistics { get; set; }
 
-public class RecordType
-{
-    [XmlAttribute("desc")]
-    public string Description { get; set; }
-
-    [XmlText]
-    public string Value { get; set; }
-}
-
-public class PreferredLanguage
-{
-    [XmlAttribute("desc")]
-    public string Description { get; set; }
-
-    [XmlText]
-    public string Value { get; set; }
-}
-
-public class AccountType
-{
-    [XmlAttribute("desc")]
-    public string Description { get; set; }
-
-    [XmlText]
-    public string Value { get; set; }
-}
-
-public class Status
-{
-    [XmlAttribute("desc")]
-    public string Description { get; set; }
-
-    [XmlText]
-    public string Value { get; set; }
+    // Constructor por defecto
+    public UserXml()
+    {
+        // Valores por defecto o de ejemplo
+        PrimaryId = "1659812-0";
+        FirstName = "Moises";
+        MiddleName = "Ignacio";
+        LastName = "Muñoz";
+        FullName = "Moises Ignacio Muñoz";
+        Gender = "Male";
+        UserGroup = "Faculty";
+        PreferredLanguage = "es";
+        ExpiryDate = "2025-12-31";
+        Status = "Active";
+        ContactInfo = new ContactInfo
+        {
+            Address = new Address
+            {
+                Line1 = "Calle Principal 123",
+                Line2 = "Edificio B",
+                Line3 = "Depto. 5",
+                Line4 = "Región Metropolitana",
+                City = "Santiago",
+                StateProvince = "RM",
+                PostalCode = "8320000",
+                Country = "Chile"
+            },
+            Email = new Email
+            {
+                EmailAddress = "m_munozn@inacap.cl"
+            },
+            Phones = new List<Phone>
+            {
+                new Phone { PhoneNumber = "+56 9 8765 4321", PhoneType = "home" },
+                new Phone { PhoneNumber = "+56 9 1234 5678", PhoneType = "mobile" }
+            }
+        };
+        UserStatistics = new List<UserStatistic>
+        {
+            new UserStatistic { StatisticCategory = "General", CategoryType = "BIBLIOTECA" }
+        };
+    }
 }
 
 public class ContactInfo
 {
-    [XmlElement("emails")]
-    public Emails Emails { get; set; }
-
-    [XmlElement("addresses")]
-    public Addresses Addresses { get; set; }
-}
-
-public class Emails
-{
-    [XmlElement("email")]
-    public List<Email> EmailList { get; set; }
-}
-
-public class Email
-{
-    [XmlElement("email_address")]
-    public string EmailAddress { get; set; }
-
-    [XmlElement("preferred")]
-    public bool Preferred { get; set; } 
-
-    [XmlElement("segment_type")]
-    public string SegmentType { get; set; } 
-}
-
-public class Addresses
-{
-    [XmlElement("address")]
-    public List<Address> AddressList { get; set; }
+    public Address Address { get; set; }
+    public Email Email { get; set; }
+    public List<Phone> Phones { get; set; }
 }
 
 public class Address
 {
-    [XmlElement("line1")]
     public string Line1 { get; set; }
-
-    [XmlElement("city")]
+    public string Line2 { get; set; }
+    public string Line3 { get; set; }
+    public string Line4 { get; set; }
     public string City { get; set; }
-
-    [XmlElement("postal_code")]
+    public string StateProvince { get; set; }
     public string PostalCode { get; set; }
+    public string Country { get; set; }
+}
 
-    [XmlElement("preferred")]
-    public bool Preferred { get; set; } 
+public class Email
+{
+    public string EmailAddress { get; set; }
+}
 
-    [XmlElement("segment_type")]
-    public string SegmentType { get; set; } 
+public class Phone
+{
+    public string PhoneNumber { get; set; }
+    public string PhoneType { get; set; }
+}
+
+public class UserStatistic
+{
+    public string StatisticCategory { get; set; }
+    public string CategoryType { get; set; }
 }

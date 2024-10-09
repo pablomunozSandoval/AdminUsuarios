@@ -8,8 +8,8 @@ namespace AdminUsuarios.Models
 {
     public class CampoDTO
     {
+        public string Url { get; set; }
         public string Apikey { get; set; }
-        public string Url {  get; set; }
-        public string Data { get; set; }
+       
     }
 }
