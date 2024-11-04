@@ -3,9 +3,7 @@ using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AdminUsuarios.DAL.Datos
 {
@@ -13,40 +11,38 @@ namespace AdminUsuarios.DAL.Datos
     {
         public List<T> GetUrl()
         {
+            // Inicializa el array de parámetros
+            IDataParameter[] param = new IDataParameter[1];
 
-                // Initialize the parameter array
-                IDataParameter[] param = new IDataParameter[1];
+            // Configura el parámetro outCur como RefCursor con dirección Output
+            param[0] = new OracleParameter
+            {
+                ParameterName = "outCur",
+                OracleDbType = OracleDbType.RefCursor,
+                Direction = ParameterDirection.Output
+            };
 
-                // Set up the outCur parameter as a RefCursor with Output direction
-                param[0] = new OracleParameter
-                {
-                    ParameterName = "outCur",
-                    OracleDbType = OracleDbType.RefCursor,
-                    Direction = ParameterDirection.Output
-                };
-
-                // Execute the stored procedure
-                try
-                {
-                    List<T> lstObjeto = _ExecuteStoredProcedure("PKG_INTEGRACION_ALMA.getUrl", ref param);
-                    return lstObjeto;
-                }
-                catch (OracleException oex)
-                {
-                    Console.WriteLine($"OracleException: {oex.Message}");
-                    throw new Exception("Oracle error occurred during stored procedure execution.");
-                }
-                catch (NullReferenceException nex)
-                {
-                    Console.WriteLine($"NullReferenceException: {nex.Message}");
-                    throw new Exception("A null reference was encountered during execution.");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"General Exception: {ex.Message}");
-                    throw new Exception("General error occurred while executing stored procedure.");
-                }
-            }            
+            // Ejecuta el procedimiento almacenado
+            try
+            {
+                List<T> lstObjeto = _ExecuteStoredProcedure("PKG_INTEGRACION_ALMA.getUrl", ref param);
+                return lstObjeto;
+            }
+            catch (OracleException oex)
+            {
+                Console.WriteLine($"OracleException: {oex.Message}");
+                throw new Exception("Ocurrió un error de Oracle durante la ejecución del procedimiento almacenado.");
+            }
+            catch (NullReferenceException nex)
+            {
+                Console.WriteLine($"NullReferenceException: {nex.Message}");
+                throw new Exception("Se encontró una referencia nula durante la ejecución.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"General Exception: {ex.Message}");
+                throw new Exception("Ocurrió un error general mientras se ejecutaba el procedimiento almacenado.");
+            }
+        }
     }
-
 }

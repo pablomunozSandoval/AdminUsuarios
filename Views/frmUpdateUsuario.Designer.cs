@@ -37,6 +37,7 @@ namespace AdminUsuarios.Views
             this.label1 = new System.Windows.Forms.Label();
             this.tblLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.formPanel.SuspendLayout();
+            this.tblLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUserId
@@ -46,7 +47,7 @@ namespace AdminUsuarios.Views
             this.txtUserId.Margin = new System.Windows.Forms.Padding(2);
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.ReadOnly = true;
-            this.txtUserId.Size = new System.Drawing.Size(402, 20);
+            this.txtUserId.Size = new System.Drawing.Size(499, 20);
             this.txtUserId.TabIndex = 1;
             this.txtUserId.Text = "1659812-0";
             // 
@@ -57,7 +58,7 @@ namespace AdminUsuarios.Views
             this.btnBuscar.Location = new System.Drawing.Point(0, 20);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(402, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(499, 23);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -70,7 +71,7 @@ namespace AdminUsuarios.Views
             this.btnActualizar.Location = new System.Drawing.Point(0, 43);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(402, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(499, 23);
             this.btnActualizar.TabIndex = 6;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -80,19 +81,18 @@ namespace AdminUsuarios.Views
             // 
             this.formPanel.AutoScroll = true;
             this.formPanel.AutoSize = true;
-            this.formPanel.Controls.Add(this.label1);
             this.formPanel.Controls.Add(this.tblLayoutPanel);
             this.formPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.formPanel.Location = new System.Drawing.Point(0, 66);
             this.formPanel.Margin = new System.Windows.Forms.Padding(2);
             this.formPanel.Name = "formPanel";
-            this.formPanel.Size = new System.Drawing.Size(402, 331);
+            this.formPanel.Size = new System.Drawing.Size(499, 509);
             this.formPanel.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 249);
+            this.label1.Location = new System.Drawing.Point(252, 254);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(204, 13);
             this.label1.TabIndex = 1;
@@ -104,6 +104,7 @@ namespace AdminUsuarios.Views
             this.tblLayoutPanel.ColumnCount = 2;
             this.tblLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblLayoutPanel.Controls.Add(this.label1, 1, 1);
             this.tblLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tblLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -111,14 +112,14 @@ namespace AdminUsuarios.Views
             this.tblLayoutPanel.RowCount = 2;
             this.tblLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblLayoutPanel.Size = new System.Drawing.Size(402, 331);
+            this.tblLayoutPanel.Size = new System.Drawing.Size(499, 509);
             this.tblLayoutPanel.TabIndex = 0;
             // 
             // frmUpdateUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 397);
+            this.ClientSize = new System.Drawing.Size(499, 575);
             this.Controls.Add(this.formPanel);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnBuscar);
@@ -128,6 +129,8 @@ namespace AdminUsuarios.Views
             this.Text = "UpdateUsuario";
             this.formPanel.ResumeLayout(false);
             this.formPanel.PerformLayout();
+            this.tblLayoutPanel.ResumeLayout(false);
+            this.tblLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

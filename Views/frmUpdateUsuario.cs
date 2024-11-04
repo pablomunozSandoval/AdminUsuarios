@@ -124,8 +124,13 @@ namespace AdminUsuarios.Views
             {
                 foreach (var email in user.ContactInfo.Emails)
                 {
-                    AddTextBox("Email Address", email.EmailAddress);
-                    AddTextBox("Email Type", email.EmailTypes.FirstOrDefault());
+                    // Convierte la lista de PhoneTypes a una cadena unida por comas
+                    string emailTypesText = email.EmailTypes != null
+                        ? string.Join(", ", email.EmailTypes)
+                        : "Unknown";
+
+                    AddTextBox($"Email Address ({emailTypesText})", email.EmailAddress);
+                    
                 }
             }
 
